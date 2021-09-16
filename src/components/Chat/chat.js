@@ -1,5 +1,5 @@
 import { mapGetters, mapActions } from 'vuex'
-import { GET_CHANNELS } from '../../store/mutation-types'
+import { GET_CHANNELS, SET_CHANNELS } from '../../store/mutation-types'
 import MessageList from '../messageList'
 
 export default {
@@ -19,8 +19,14 @@ export default {
             // SET_MESSAGES,
             GET_CHANNELS,
             "GET_MESSAGES",
-            "POST_MESSAGES"
+            "POST_MESSAGES",
+            SET_CHANNELS,
+            "POST_CHANNELS"
         ]),
+        add_channel() {
+            this.POST_CHANNELS({"cname": this.$route.params.cname}),
+            this.channel = " "
+        },
         send_message() {
             // this.SET_MESSAGES(this.message)
             this.POST_MESSAGES({"cname": this.$route.params.cname, "message": this.message}),
@@ -33,6 +39,7 @@ export default {
     data() {
         return {
             message: "",
+            channel: ""
         }
     }
 }

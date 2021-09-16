@@ -3,6 +3,9 @@ el-container
     ul
       li(v-for="(channel) in channels")
         router-link(:to="{name: 'channel', params: { cname: channel }}") {{ channel }}
+    el-form
+      el-input(type="text" v-model="channel")
+      el-button("@click"="add_channel") ADD
   el-container
     el-header {{ $route.params.cname  }}
     el-main
