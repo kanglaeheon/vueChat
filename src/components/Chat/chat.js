@@ -1,5 +1,6 @@
 import { mapGetters, mapActions } from 'vuex'
 import { GET_CHANNELS } from '../../store/mutation-types'
+import MessageList from '../messageList'
 
 export default {
     name: 'chat',
@@ -25,6 +26,9 @@ export default {
             this.POST_MESSAGES({"cname": this.$route.params.cname, "message": this.message}),
             this.message = " "
         }
+    },
+    components: {
+        'message-list': MessageList
     },
     data() {
         return {
